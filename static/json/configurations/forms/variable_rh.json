@@ -1,0 +1,10 @@
+{
+	"variable": "r_H",
+	"form_subtitle": "Variable Heliocentric Distance",
+	"form_data": [
+		["species"],
+		["Av", "Air"],
+		["range_r_H"],
+		["obliquity"]
+	]
+}

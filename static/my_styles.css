@@ -1,0 +1,46 @@
+.navbar{
+	padding-left: 220px;
+	padding-right: 220px
+}
+
+.nav-link {
+	color: white;
+	}
+
+	.form-group {margin-top: 1rem;
+}
+
+.text-mute{
+	color:white;
+	font-size: 16px;
+}
+.form_header{
+	color:white;
+	font-weight:600;
+	font-size: 18px;
+}
+
+.siderbar_styled {
+	color:white;
+}
+
+.my-scroll {
+    font-size: medium;
+    height: 800px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-align: center;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.myscroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.myscroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+

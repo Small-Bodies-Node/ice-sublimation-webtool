@@ -1,0 +1,10 @@
+{
+	"variable": "obliquity",
+	"form_subtitle": "Variable Obliquity",
+	"form_data": [
+		["species"],
+		["Av", "Air"],
+		["r_H"],
+		["range_obliquity"]
+	]
+}

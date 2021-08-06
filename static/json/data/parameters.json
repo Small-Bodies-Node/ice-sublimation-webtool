@@ -1,0 +1,106 @@
+{
+  "species": {
+    "displayName": "Species",
+    "description": "Select the volatile species on the surface of the nucleus",
+    "type": "form-select",
+    "valuesList": [{
+		"internal_name": "H2O",
+		"display_name": "H2O"
+	},{
+		"internal_name": "H2O-CH4",
+		"display_name": "H2O-CH4"
+	},{
+		"internal_name": "CO2",
+		"display_name": "CO2"
+	},{
+		"internal_name": "CO",
+		"display_name": "CO"
+	}],
+    "default": "H2O"
+  },
+  "Av": {
+    "displayName": "Visual albedo",
+    "annotation": "(between 0 and 1)",
+    "description": "Effective albedo for absorption of sunlight",
+    "type": "number",
+    "min": 0,
+    "max": 0.9999,
+    "step": 0.0001,
+    "default": "0.0500"
+  },
+  "range_Av": {
+    "type": "range",
+    "default_min": "0.0000",
+    "default_max": "0.5000",
+    "min_Av": "Minimum visual albedo",
+    "max_Av": "Maximum visual albedo",
+    "n_Av": "Number of steps"
+  },
+  "Air": {
+    "displayName": "Infrared albedo",
+    "annotation": "(between 0 and 1)",
+    "description": "Effective albedo for thermal emission",
+    "type": "number",
+    "min": 0,
+    "max": 0.9999,
+    "step": 0.0001,
+    "default": "0.0000"
+  },
+  "range_Air": {
+    "type": "range",
+    "default_min": "0.0000",
+    "default_max": "0.5000",
+    "min_Air": "Minimum infrared albedo",
+    "max_Air": "Maximum infrared albedo",
+    "n_Air": "Number of steps"
+  },
+  "r_H": {
+    "displayName": "Heliocentric distance",
+    "annotation": "(au)",
+    "description": "Distance between the sun and the comet's nucleus",
+    "type": "number",
+    "min": 0.0001,
+    "max": 100,
+    "step": 0.0001,
+    "default": "3.9811"
+  },
+  "range_r_H": {
+    "type": "range",
+    "default_min": "0.1000",
+    "default_max": "25.1189",
+    "min_r_H": "Minimum heliocentric distance (au)",
+    "max_r_H": "Maximum heliocentric distance (au)",
+    "n_r_H": "Number of steps"
+  },
+    "obliquity": {
+    "displayName": "Obliquity",
+    "annotation": "(between 0 and 90 degrees)",
+    "description": "Angle between the rotation axis and the direction to the sun",
+    "type": "number",
+    "min": 0,
+    "max": 90,
+    "step": 0.0001,
+    "default": "90.0000"
+  },
+  "range_obliquity": {
+    "type": "range",
+    "default_min": "35.0000",
+    "default_max": "55.0000",
+    "min_obliquity": "Minimum obliquity (degrees)",
+    "max_obliquity": "Maximum obliquity (degrees)",
+    "n_obliquity": "Number of steps"
+  },
+  "rlog": {
+    "type": "output",
+    "displayName": "Log(r_H)"
+  },
+  "Zbar": {
+    "type": "output",
+    "displayName": "Vaporization rate (molecules cm^-2 s^-1)"
+  },
+  "Zlog": {
+    "type": "output",
+    "displayName": "Log(Z)"
+  }
+}
+

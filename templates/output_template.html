@@ -1,0 +1,46 @@
+{% extends 'navbar_template.html' %}
+{% block title %} Results {% endblock %}
+
+{% block headAdditions %}
+	{% include 'table_js_template.html' %}
+	{% if result_file.results|length > 1 %}
+		{% include 'chart_js_template.html' %}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<center>
+    <br>
+    <h1 style="color:white">Results:</h1>
+</center>
+
+<div class="container" style="">
+	<br>
+	{% if result_file.results|length > 1 %}
+		<div class="row" style="height:300px">
+			<div id="curve_chart"></div>
+		</div>
+		<div class="row my-scroll" style="height:300px">
+			<div id="table_div" style="height: 100%"></div>
+		</div>
+	{% else %}
+		<div id="table_div" style="100%"></div>
+	{% endif %}
+	<div class="row" style="height:200px;">
+		<div class="container">
+			<br>
+			<br>
+			<div class="row" style="">
+				<div class="col d-grid gap-2 mx-auto" style="">
+					<a type="button" class="btn btn-primary btn-lg" href="{{ url_for('send_results', file='output.csv') }}">Download CSV</a>
+				</div>
+				<div class="col d-grid gap-2 mx-auto" style="">
+					<a type="button" class="btn btn-primary btn-lg" href="{{ url_for('send_results', file='output.json') }}">Download JSON</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

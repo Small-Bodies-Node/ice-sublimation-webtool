@@ -1,0 +1,9 @@
+{
+	"variable": "None",
+	"form_subtitle": "Specific Calculation",
+	"form_data": [
+		["species"],
+		["Av", "Air"],
+		["r_H", "obliquity"]
+	]
+}

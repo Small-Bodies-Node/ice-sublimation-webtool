@@ -1,0 +1,75 @@
+{% extends 'navbar_template.html' %}
+{% block title %}{{ form_file.form_subtitle }}{% endblock %}
+
+{% block content %}
+	<br>
+	<h1 style="text-align: center"><b style="color:white">{{ strings_config.form_title }}</b></h1>
+	<p style="text-align: center; color:white; font-size:16pt">({{ form_file.form_subtitle }})</p>
+	<br>
+	<form action="{{ url_for('calculation') }}" method="POST">
+	<input type="hidden" id="variable" name="variable" value="{{ form_file.variable }}">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-2 sidebar">
+			</div>
+			<div class="col-8">
+				{% for form_row in form_file.form_data %}
+					<div class="form-group row">
+						{% for form_entry in form_row %}
+							{% set parameter = parameters_config[form_entry] %}
+							{% if parameter.type == "form-select" %}
+								<div class="col">
+									<label for="{{ form_entry }}" class="form_header">{{ parameter.displayName }}</label>
+									<select class="form-select" required name="{{ form_entry }}">
+										{% for item in parameter.valuesList %}
+											<option value="{{item.internal_name}}">{{ item.display_name }}</option>
+										{% endfor %}
+									</select>
+									<small id="HelpBlock" class="d-flex justify-content-center form-text text-mute"><a style="color:#99CCFF">{{ parameter.description }}</a></small>
+								</div>
+							{% elif parameter.type == "number" %}
+								<div class="col">
+									<label for="{{ form_entry }}" class="form_header">{{ [parameter.displayName, parameter.annotation]|join(' ') }}</label>
+									<input type="number" class="form-control" name="{{ form_entry }}" min="{{ parameter.min }}" max="{{ parameter.max }}" step="{{ parameter.step }}" value="{{ parameter.default }}">
+									<small id="HelpBlock" class="d-flex justify-content-center form-text text-mute"><a style="color:#99CCFF">{{ parameter.description }}</a></small>
+								</div>
+							{% elif parameter.type == "range" %}
+								{% set core = parameters_config[form_entry|replace("range_","")] %}
+								{% set range_min = form_entry|replace("range_","min_") %}
+								<div class="col">
+									<label for="{{ range_min }}" class="form_header">{{ parameter[range_min] }}</label>
+									<input type="number" class="form-control" name="{{ range_min }}" min="{{ core.min }}" max="{{ core.max }}" step="{{ core.step }}" value="{{ parameter.default_min }}">
+								</div>
+								{% set range_max = form_entry|replace("range_","max_") %}
+								<div class="col">
+									<label for="{{ range_max }}" class="form_header">{{ parameter[range_max] }}</label>
+									<input type="number" class="form-control" name="{{ range_max }}" min="{{ core.min }}" max="{{ core.max }}" step="{{ core.step }}" value="{{ parameter.default_max }}">
+								</div>
+								{% set step_size = form_entry|replace("range_","n_") %}
+								<div class="col">
+									<label for="{{ step_size }}" class="form_header">{{ parameter[step_size] }}</label>
+									<input type="number" class="form-control" name="{{ step_size }}" min=1 max=1000 step=1 value=101>
+								</div>
+								<small id="HelpBlock" class="d-flex justify-content-center form-text text-mute"><a style="color:#99CCFF">{{ core.description }}</a></small>
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% endfor %}
+				<div class="form-group row">
+					<div class="col-3">
+						<button type="reset" class="btn btn-danger btn-lg" style="width:100%" value="Reset">Reset</button>
+					</div>
+					<div class="col-3">
+					</div>
+					<div class="col-6">
+						<button type="submit" class="btn btn-primary btn-lg btn-block" style="width:100%">Submit</button>
+					</div>
+				</div>
+			</div>
+			<div class=col-2>
+			</div>
+		</div>
+	</div>
+	</form>
+{% endblock %}
+

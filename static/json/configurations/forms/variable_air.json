@@ -1,0 +1,10 @@
+{
+	"variable": "Air",
+	"form_subtitle": "Variable Infrared Albedo",
+	"form_data": [
+		["species"],
+		["Av"],
+		["range_Air"],
+		["r_H", "obliquity"]
+	]
+}

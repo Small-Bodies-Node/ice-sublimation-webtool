@@ -1,0 +1,35 @@
+[{
+		"type": "simple-redirect",
+		"internalName": "smallBodiesNode",
+		"displayName": "Return to Small Bodies Node"
+	},
+	{
+		"type": "form-redirect",
+		"internalName": "specific",
+		"displayName": "Specific Calculation"
+	},
+	{
+		"type": "form-redirect",
+		"header": {
+			"displayName": "Survey Calculations"
+		},
+		"elements": [{
+			"internalName": "variable_av",
+			"displayName": "Variable visual albedo"
+		}, {
+			"internalName": "variable_air",
+			"displayName": "Variable infrared albedo"
+		}, {
+			"internalName": "variable_rh",
+			"displayName": "Variable heliocentric distance"
+		}, {
+			"internalName": "variable_obl",
+			"displayName": "Variable obliquity"
+		}]
+	},
+	{
+		"type": "simple-redirect",
+		"internalName": "sourceCode",
+		"displayName": "Source Code"
+	}
+]

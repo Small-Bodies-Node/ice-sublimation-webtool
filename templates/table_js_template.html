@@ -1,0 +1,26 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['table']});
+  google.charts.setOnLoadCallback(drawTable);
+
+  function drawTable() {
+
+    var table_data = google.visualization.arrayToDataTable([
+      [ {% for key in result_keys %}
+        '{{ parameters_config[key].displayName }}',
+      {% endfor %} ],
+      {% for result in result_file.results %}
+        [ {% for key, value in result.items() %}
+            '{{ value }}',
+        {% endfor %} ],
+      {% endfor %}
+    ]);
+
+    var table = new google.visualization.Table(document.getElementById('table_div'));
+    var tableOptions = {
+        width: '100%',
+    };
+
+    table.draw(table_data, tableOptions);
+  }
+</script>

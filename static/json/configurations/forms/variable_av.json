@@ -1,0 +1,10 @@
+{
+	"variable": "Av",
+	"form_subtitle": "Variable Visual Albedo",
+	"form_data": [
+		["species"],
+		["range_Av"],
+		["Air"],
+		["r_H", "obliquity"]
+	]
+}

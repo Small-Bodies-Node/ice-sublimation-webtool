@@ -1,0 +1,92 @@
+{
+	"variable": "All",
+	"form_title": "Full Survey",
+	"form_subtitle": "Example Subtitle",
+	"form_data": [
+		[{
+			"type": "form-select",
+			"inner_name": "species"
+		}],
+		[{
+				"type": "number",
+				"inner_name": "min_Av",
+				"min": 0,
+				"max": 1,
+				"step": 0.0001
+			}, {
+				"type": "number",
+				"inner_name": "max_Av",
+				"min": 0,
+				"max": 1,
+				"step": 0.0001
+			}, {
+				"type": "number",
+				"inner_name": "n_Av",
+				"min": 1,
+				"max": 999999,
+				"step": 1
+			}
+		],
+		[{
+				"type": "number",
+				"inner_name": "min_Air",
+				"min": 0,
+				"max": 1,
+				"step": 0.0001
+			}, {
+				"type": "number",
+				"inner_name": "max_Air",
+				"min": 0,
+				"max": 1,
+				"step": 0.0001
+			}, {
+				"type": "number",
+				"inner_name": "n_Air",
+				"min": 1,
+				"max": 999999,
+				"step": 1
+			}
+		],
+		[{
+				"type": "number",
+				"inner_name": "min_r_H",
+				"min": 0,
+				"max": 1000,
+				"step": 0.0001
+			}, {
+				"type": "number",
+				"inner_name": "max_r_H",
+				"min": 0,
+				"max": 1000,
+				"step": 0.0001
+			}, {
+				"type": "number",
+				"inner_name": "n_r_H",
+				"min": 0,
+				"max": 999999,
+				"step": 1
+			}
+		],
+		[
+			{
+				"type": "number",
+				"inner_name": "min_obliquity",
+				"min": 0,
+				"max": 90,
+				"step": 0.0001
+			}, {
+				"type": "number",
+				"inner_name": "max_obliquity",
+				"min": 0,
+				"max": 90,
+				"step": 0.0001
+			}, {
+				"type": "number",
+				"inner_name": "n_obliquity",
+				"min": 1,
+				"max": 999999,
+				"step": 1
+			}
+		]
+	]
+}

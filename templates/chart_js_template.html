@@ -1,0 +1,27 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['{{ strings_config[independent_var] }}', '{{ dependent_var }}'],
+      {% for result in result_file.results %}
+      [{{ result[independent_var] }}, {{result[dependent_var] }}],
+      {% endfor %}
+    ]);
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+    var chartOptions = {
+        title: '{{ [strings_config.chart_title_start, parameters_config[independent_var].displayName]|join(' ')|title }}',
+        hAxis: {title: '{{ parameters_config[independent_var].displayName }}'},
+        vAxis: {title: '{{ parameters_config[dependent_var].displayName }}' },
+        chartArea: {width: '85%', right: 50, height: '75%'},
+        curveType: 'function',
+        legend: { position: 'none' },
+    };
+
+    chart.draw(data, chartOptions);
+  }
+</script>
