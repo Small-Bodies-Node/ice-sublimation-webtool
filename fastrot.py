@@ -36,7 +36,9 @@
     inclination.
     - Initialized the parameters such that they can accept nine characters of data.
 """
+import csv
 import math
+import os
 import sys
 import json
 import logging
@@ -426,7 +428,8 @@ description2 = "PROGRAM ITERATES ENERGY BALANCE EQUATION BY NEWTON-RAPHSON METHO
 if __name__ == '__main__':
     import argparse
 
-    parser = argparse.ArgumentParser(description="\n\n".join([description1, description2]), formatter_class=argparse.RawTextHelpFormatter,)
+    parser = argparse.ArgumentParser(description="\n\n".join([description1, description2]),
+                                     formatter_class=argparse.RawTextHelpFormatter,)
     parser.add_argument('species', type=str,
                         help="Desired ice species to be considered. \n"
                              "The valid inputs are: " + ', '.join(speciesList))
@@ -446,7 +449,7 @@ if __name__ == '__main__':
 
     try:
         args = parser.parse_args()
-        results = run_model(args.species, args.Av, args.Air, args.rh, args.obl, args.temp, args.verbosity)
+        results = {'results': run_model(args.species, args.Av, args.Air, args.rh, args.obl, args.temp, args.verbosity)}
     except Exception as e:
         results = {
             'status': 'failure',
@@ -454,3 +457,14 @@ if __name__ == '__main__':
         }
 
     print(json.dumps(results))
+
+    json_path = os.path.join(os.getcwd(), 'results', 'output.json')
+    with open(json_path, 'w') as json_file:
+        json.dump(results, json_file)
+
+    fieldnames = list(results['results'].keys())
+    csv_path = os.path.join(os.getcwd(), 'results', 'output.csv')
+    with open(csv_path, 'w') as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerow(results['results'])
