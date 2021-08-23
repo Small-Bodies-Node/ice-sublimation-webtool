@@ -1,5 +1,0 @@
-The lookup table is too large to be stored directly on github (the file for each species is roughly 80 MB).
-
-The files can be found in Google Drive by following the link below:
-
-https://drive.google.com/drive/folders/1j3tAJtPspPRGPS2Jj_XYl1ZPzT5nkOnz?usp=sharing

@@ -3,9 +3,6 @@ import os
 
 app = Flask(__name__)
 
-if __name__ == "__main__":
-    app.run()
-    
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
 
@@ -109,3 +106,7 @@ def send_results(file=None):
             return send_file(file_path, as_attachment=True)
         except:
             return file_path + ' not found', 400
+
+
+if __name__ == "__main__":
+    app.run()
