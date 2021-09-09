@@ -18,40 +18,51 @@
         {% block headAdditions %} {% endblock %}
     </head>
     <body>
-        <nav class="navbar navbar-text bg-secondary">
-            {% for column in navbar_config %}
-                {% if "header" in column %}
-                    {% if column.type == "simple-redirect" %}
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              {{ column.header.displayName }}
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                {% for element in column.elements %}
-                                    <a class="dropdown-item" href="{{ url_for(element.internalName) }}">{{ element.displayName }}</a>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    {% elif column.type == "form-redirect" %}
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              {{ column.header.displayName }}
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                {% for element in column.elements %}
-                                    <a class="dropdown-item" href="{{ url_for('form_template', form=element.internalName) }}">{{ element.displayName }}</a>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    {% endif %}
-                {% else %}
-                    {% if column.type == "simple-redirect" %}
-                        <a class="nav-link" href="{{ url_for(column.internalName) }}">{{ column.displayName }}</a>
-                    {% elif column.type == "form-redirect" %}
-                        <a class="nav-link" href="{{ url_for('form_template', form=column.internalName) }}">{{ column.displayName }}</a>
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4284f5">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    {% for column in navbar_config %}
+                        {% if "header" in column %}
+                            {% if column.type == "simple-redirect" %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
+                                      {{ column.header.displayName }}
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        {% for element in column.elements %}
+                                            <a class="dropdown-item" href="{{ url_for(element.internalName) }}">{{ element.displayName }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                            {% elif column.type == "form-redirect" %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
+                                      {{ column.header.displayName }}
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        {% for element in column.elements %}
+                                            <a class="dropdown-item" href="{{ url_for('form_template', form=element.internalName) }}">{{ element.displayName }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                            {% endif %}
+                        {% else %}
+                            {% if column.type == "simple-redirect" %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for(column.internalName) }}" style="color:white">{{ column.displayName }}</a>
+                                </li>
+                            {% elif column.type == "form-redirect" %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('form_template', form=column.internalName) }}" style="color:white">{{ column.displayName }}</a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
         </nav>
         {% block content %}{% endblock %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

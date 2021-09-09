@@ -17,7 +17,7 @@ A rapidly rotating nucleus is one for which the thermal inertia is large enough 
 Flask is the only python dependency which is not a part of the standard library. It can be added from pip via `pip install Flask`.
 
 ### Usage
-To launch the web tool, navigate to the project's top level directory, `ice-sublimation-webtool/`, and enter the command `python app.py`.
+To launch the web tool, navigate to the project's top level directory, `ice-sublimation-webtool/`, and enter the command `python main.py`.
 
 Your command line will then tell you which port the web tool is assessable from. By default, this will be http://127.0.0.1:5000/. Follow the link in your browser to access the project. 
 

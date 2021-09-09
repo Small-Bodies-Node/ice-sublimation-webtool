@@ -101,7 +101,7 @@ def send_results(file=None):
     if file is None:
         return 'bad request', 400
     else:
-        file_path = os.path.join(app.root_path, 'results', file)
+        file_path = os.path.join('/', 'tmp', file)
         try:
             return send_file(file_path, as_attachment=True)
         except:

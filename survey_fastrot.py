@@ -42,8 +42,8 @@
             - "obliquity" : float
             - "Zbar" : float
             - "Zlog" : float
-    'results/output.json` : .json file
-    `results/output.csv` : .csv file
+    'tmp/output.json` : .json file
+    `tmp/output.csv` : .csv file
 """
 import os
 import csv
@@ -62,12 +62,12 @@ def survey_fastrot(species_set, Av_set, Air_set, rh_set, obl_set):
         results.append(fastrot.run_model(*inputs))
 
     output_json = {'results': results}
-    json_path = os.path.join(os.getcwd(), 'results', 'output.json')
+    json_path = os.path.join('/', 'tmp', 'output.json')
     with open(json_path, 'w') as json_file:
         dump(output_json, json_file)
 
     fieldnames = results[0].keys()
-    csv_path = os.path.join(os.getcwd(), 'results', 'output.csv')
+    csv_path = os.path.join('/', 'tmp', 'output.csv')
     with open(csv_path, 'w') as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()

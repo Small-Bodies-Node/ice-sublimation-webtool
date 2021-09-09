@@ -458,12 +458,12 @@ if __name__ == '__main__':
 
     print(json.dumps(results))
 
-    json_path = os.path.join(os.getcwd(), 'results', 'output.json')
+    json_path = os.path.join('/', 'tmp', 'output.json')
     with open(json_path, 'w') as json_file:
         json.dump(results, json_file)
 
     fieldnames = list(results['results'].keys())
-    csv_path = os.path.join(os.getcwd(), 'results', 'output.csv')
+    csv_path = os.path.join('/', 'tmp', 'output.csv')
     with open(csv_path, 'w') as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
         writer.writeheader()
