@@ -47,7 +47,7 @@ def form_template(form):
 
 @app.route('/sourceCode')
 def sourceCode():
-    return redirect('https://github.com/mvanselous/ice-sublimation')
+    return redirect('https://github.com/Small-Bodies-Node/ice-sublimation')
 
 
 @app.route('/smallBodiesNode')
