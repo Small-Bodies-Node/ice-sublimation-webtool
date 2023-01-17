@@ -89,6 +89,9 @@ def calculation():
                                          float(form_outputs.get('max_' + core_outputs[idx])),
                                          int(form_outputs.get('n_' + core_outputs[idx]))))
 
+        # append number of latitude steps
+        arg_list.append(181)
+
         results = survey_fastrot(species, *arg_list)
 
         result_keys = list(results['results'][0].keys())
