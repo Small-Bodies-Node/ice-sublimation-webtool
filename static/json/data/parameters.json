@@ -3,19 +3,24 @@
     "displayName": "Species",
     "description": "Select the volatile species on the surface of the nucleus",
     "type": "form-select",
-    "valuesList": [{
-		"internal_name": "H2O",
-		"display_name": "H2O"
-	},{
-		"internal_name": "H2O-CH4",
-		"display_name": "H2O-CH4"
-	},{
-		"internal_name": "CO2",
-		"display_name": "CO2"
-	},{
-		"internal_name": "CO",
-		"display_name": "CO"
-	}],
+    "valuesList": [
+      {
+        "internal_name": "H2O",
+        "display_name": "H2O"
+      },
+      {
+        "internal_name": "H2O-CH4",
+        "display_name": "H2O-CH4"
+      },
+      {
+        "internal_name": "CO2",
+        "display_name": "CO2"
+      },
+      {
+        "internal_name": "CO",
+        "display_name": "CO"
+      }
+    ],
     "default": "H2O"
   },
   "Av": {
@@ -72,10 +77,10 @@
     "max_r_H": "Maximum heliocentric distance (au)",
     "n_r_H": "Number of steps"
   },
-    "obliquity": {
+  "obliquity": {
     "displayName": "Obliquity",
     "annotation": "(between 0 and 90 degrees)",
-    "description": "Angle between the rotation axis and the direction to the sun",
+    "description": "Angle between the object's rotational axis and its orbital axis",
     "type": "number",
     "min": 0,
     "max": 90,
@@ -103,4 +108,3 @@
     "displayName": "Log(Z)"
   }
 }
-
